@@ -3,15 +3,15 @@ function PigDicePlayer() {
   this.player = [];
 }
 
-PigDicePlayer.prototype.addPlayer = function () {
+PigDicePlayer.prototype.addPlayer = function (Player) {
   this.player.push(Player);
 };
 
 //business logic for pig dice game
 function Player(userName, totalScore, diceFace, currentScore) {
-  this.userName = userName,
-  this.totalScore = totalScore,
-  this.diceFace = diceFace,
+  this.userName = userName;
+  this.totalScore = totalScore;
+  this.diceFace = diceFace;
   this.currentScore = currentScore;
 }
 
