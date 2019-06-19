@@ -14,29 +14,31 @@
     </div>
 
     <form id="name-entry">
+
       <div class="form-group">
-        <label for="new-name">Please enter a user name!</label>
-        <input type="text" class="form-control" id="user-input">
+        <label for="new-user">Please enter a user name!</label>
+        <input type="text" class="form-control" id="new-user">
       </div>
       <button id="name-submit" type="submit" name="button">Submit</button>
     </form>
-    <div id="turn-indicator">
 
-    </div>
-    <div id="current-score">
 
-    </div>
-    <div id="total-score">
 
+    <div id="show-score">
+      <p>Turn:  <span id="name-turn-indicator"></span></p>
+      <p>Current dice face: <span id='current-dice'></span></p>
+      <p>Current turn score: <span id='current-turn-score'></span></p>
+      <p>Total score: <span id='total-score'></span></p>
+      <p>The WINNER is: <span id='winner'></span></p>
+      <div id="buttons">
     </div>
-    <div id="who-wins">
 
-    </div>
+
     <div id="rollButton">
-
+      <button id="roll" type="submit" name="button">Roll the dice!</button>
     </div>
     <div id="holdButton">
-
+      <button id="hold" type="submit" name="button">Hold!</button>
     </div>
   </div>
 </body>
