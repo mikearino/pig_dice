@@ -14,3 +14,12 @@ function player() {
   this.dice = dice,
   this.currentTurnScore = currentTurnScore;
 }
+
+//user logic
+$(document).ready(function () {
+  $('form#name-entry').submit(function (event) {
+    event.preventDefault();
+    var playerOneNameInput = $('#user-input').val();
+    console.log(playerOneNameInput);
+  });
+});

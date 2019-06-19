@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/scripts.js"></script>
-    <title></title>
-  </head>
-  <body>
+<head>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/jquery-3.4.1.js"></script>
+  <script src="js/scripts.js"></script>
+  <title></title>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Welcome to Pig Passer</h1>
+    </div>
 
-  </body>
+    <form id="name-entry">
+      <div class="form-group">
+        <label for="new-name">Please enter a user name!</label>
+        <input type="text" class="form-control" id="user-input">
+      </div>
+      <button id="name-submit" type="submit" name="button">Submit</button>
+    </form>
+    <div id="turn-indicator">
+
+    </div>
+    <div id="current-score">
+
+    </div>
+    <div id="total-score">
+
+    </div>
+    <div id="who-wins">
+
+    </div>
+    <div id="rollButton">
+
+    </div>
+    <div id="holdButton">
+
+    </div>
+  </div>
+</body>
 </html>
