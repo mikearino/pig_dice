@@ -13,33 +13,71 @@
       <h1>Welcome to Pig Passer</h1>
     </div>
 
-    <form id="name-entry">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <form id="name-entry1">
+            <div class="form-group">
+              <label for="new-user1">Please enter a user name!</label>
+              <input type="text" class="form-control" id="new-user1">
+            </div>
+            <button id="name-submit1" type="submit" name="button">Submit</button>
+          </form>
 
-      <div class="form-group">
-        <label for="new-user">Please enter a user name!</label>
-        <input type="text" class="form-control" id="new-user">
+
+
+          <div id="show-score1">
+            <p>Turn:  <span id="name-turn-indicator1"></span></p>
+            <p>Current dice face: <span id='current-dice1'></span></p>
+            <p>Current turn score: <span id='current-turn-score1'></span></p>
+            <p>Total score: <span id='total-score1'></span></p>
+            <p>The WINNER is: <span id='winner1'></span></p>
+          </div>
+
+
+          <div id="rollButton2">
+            <button id="roll1" type="submit" name="button">Roll the dice!</button>
+          </div>
+          <div id="holdButton">
+            <button id="hold1" type="submit" name="button">Hold!</button>
+          </div>
+        </div>
+
+      <div class="container">
+
+        <div class="col-md-6">
+          <form id="name-entry2">
+            <div class="form-group">
+              <label for="new-user2">Please enter a user name!</label>
+              <input type="text" class="form-control" id="new-user2">
+            </div>
+            <button id="name-submit2" type="submit" name="button">Submit</button>
+          </form>
+
+
+
+          <div id="show-score">
+            <p>Turn:  <span id="name-turn-indicator2"></span></p>
+            <p>Current dice face: <span id='current-dice2'></span></p>
+            <p>Current turn score: <span id='current-turn-score2'></span></p>
+            <p>Total score: <span id='total-score2'></span></p>
+            <p>The WINNER is: <span id='winner2'></span></p>
+          </div>
+
+
+          <div id="rollButton2">
+            <button id="roll2" type="submit" name="button">Roll the dice!</button>
+          </div>
+          <div id="holdButton2">
+            <button id="hold2" type="submit" name="button">Hold!</button>
+          </div>
+        </div>
       </div>
-      <button id="name-submit" type="submit" name="button">Submit</button>
-    </form>
-
-
-
-    <div id="show-score">
-      <p>Turn:  <span id="name-turn-indicator"></span></p>
-      <p>Current dice face: <span id='current-dice'></span></p>
-      <p>Current turn score: <span id='current-turn-score'></span></p>
-      <p>Total score: <span id='total-score'></span></p>
-      <p>The WINNER is: <span id='winner'></span></p>
-      <div id="buttons">
-    </div>
-
-
-    <div id="rollButton">
-      <button id="roll" type="submit" name="button">Roll the dice!</button>
-    </div>
-    <div id="holdButton">
-      <button id="hold" type="submit" name="button">Hold!</button>
     </div>
   </div>
+</div>
+
+
+
 </body>
 </html>
