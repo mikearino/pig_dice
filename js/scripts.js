@@ -11,8 +11,8 @@ function rollingDice() {
   return Math.floor(Math.random() * ((6 - 1) + 1) + 1);
 }
 
-*****************
-// function diceRoll(currentRoll) {
+// *******
+// Player.prototype.diceRoll= function (currentRoll) {
 // console.log(currentRoll)
 //   if (currentRoll === 1) {
 //     Player.currentScore = 0;
