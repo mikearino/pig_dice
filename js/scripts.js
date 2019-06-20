@@ -7,26 +7,29 @@ PigDicePlayer.prototype.addPlayer = function (Player) {
   this.player.push(Player);
 };
 
+
 function rollingDice() {
   return Math.floor(Math.random() * ((6 - 1) + 1) + 1);
 }
 
-// *******
-// Player.prototype.diceRoll= function (currentRoll) {
-// console.log(currentRoll)
-//   if (currentRoll === 1) {
-//     Player.currentScore = 0;
-//   }
-// }
-
 function Player(userName, totalScore, diceFace, currentScore) {
   this.userName = userName;
   this.totalScore = 0;
-  this.diceFace = diceFace;
+  this.diceFace = 0;
   this.currentScore = 0;
 }
+//Working on hold prototype
+// Player.prototype.holdFunc = function() {
+//   this.totalScore += currentScore
+// }
 
-
+Player.prototype.rollDice = function() {
+  if (this.diceFace === 1) {
+    this.currentScore = 0
+  } else {
+    this.currentScore += this.diceFace
+  }
+}
 
 //user logic
 var pigDicePlayerForList = new PigDicePlayer();
@@ -51,6 +54,7 @@ $(document).ready(function () {
     $('#show-score1').show();
     $('#name-entry2').show();
   });
+  console.log(pigDicePlayerForList.player[0])
 
   $('form#name-entry2').submit(function (event) {
     event.preventDefault();
@@ -72,21 +76,28 @@ $(document).ready(function () {
     $('#button2').show();
   });
 
+
+  console.log(pigDicePlayerForList.player[1])
   //This click function calculates the current score and creates outputs to DOM
   //and updates objects
   $('#roll1').click(function (event) {
     event.preventDefault();
     var currentRoll = rollingDice();
     $('#current-dice1').text(currentRoll);
+    pigDicePlayerForList.player[0].diceFace = currentRoll
     pigDicePlayerForList.player[0].currentScore += currentRoll
+    pigDicePlayerForList.player[0].rollDice();
     $('#current-turn-score1').text(pigDicePlayerForList.player[0].currentScore);
   });
+
 
   $('#roll2').click(function (event) {
     event.preventDefault();
     var currentRoll = rollingDice();
     $('#current-dice2').text(currentRoll);
+    pigDicePlayerForList.player[1].diceFace = currentRoll
     pigDicePlayerForList.player[1].currentScore += currentRoll
+    pigDicePlayerForList.player[1].rollDice();
     $('#current-turn-score2').text(pigDicePlayerForList.player[1].currentScore);
   });
 
@@ -104,7 +115,7 @@ $(document).ready(function () {
   $('#hold2').click(function (event) {
     event.preventDefault();
     var currentScore = pigDicePlayerForList.player[1].currentScore
-     pigDicePlayerForList.player[0].totalScore += currentScore;
+     pigDicePlayerForList.player[1].totalScore += currentScore;
    $('#total-score2').text(currentScore);
    $('#button2').hide();
    $('#button1').show();
