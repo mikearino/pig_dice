@@ -24,11 +24,31 @@ Player.prototype.holdFunc = function() {
   this.currentScore = 0
 }
 
-Player.prototype.rollDice = function() {
-  if (this.diceFace === 1) {
+Player.prototype.rollDice1 = function() {
+  if (pigDicePlayerForList.player[0].diceFace === 1) {
     this.currentScore = 0
+    $('#button1').hide();
+    $('#button2').show();
   } else {
     this.currentScore += this.diceFace
+  }
+}
+
+Player.prototype.rollDice2 = function() {
+  if (pigDicePlayerForList.player[1].diceFace === 1) {
+    this.currentScore = 0
+    $('#button2').hide();
+    $('#button1').show();
+  } else {
+    this.currentScore += this.diceFace
+  }
+}
+
+Player.prototype.winCheck = function (){
+  if (this.totalScore >= 1) {
+    $('.container').hide();
+    $('#output-Winner').text("you win")
+
   }
 }
 
@@ -88,7 +108,7 @@ $(document).ready(function () {
     $('#current-dice1').text(currentRoll);
     pigDicePlayerForList.player[0].diceFace = currentRoll
     // pigDicePlayerForList.player[0].currentScore += currentRoll
-    pigDicePlayerForList.player[0].rollDice();
+    pigDicePlayerForList.player[0].rollDice1();
     $('#current-turn-score1').text(pigDicePlayerForList.player[0].currentScore);
   });
 
@@ -99,7 +119,7 @@ $(document).ready(function () {
     $('#current-dice2').text(currentRoll);
     pigDicePlayerForList.player[1].diceFace = currentRoll
     // pigDicePlayerForList.player[1].currentScore += currentRoll
-    pigDicePlayerForList.player[1].rollDice();
+    pigDicePlayerForList.player[1].rollDice2();
     $('#current-turn-score2').text(pigDicePlayerForList.player[1].currentScore);
   });
 
@@ -112,6 +132,7 @@ $(document).ready(function () {
      $('#button1').hide();
      $('#button2').show();
      $('#current-turn-score1').text(pigDicePlayerForList.player[0].currentScore);
+      pigDicePlayerForList.player[0].winCheck();
   });
 
   $('#hold2').click(function (event) {
@@ -120,7 +141,8 @@ $(document).ready(function () {
    $('#total-score2').text(pigDicePlayerForList.player[1].totalScore);
    $('#button2').hide();
    $('#button1').show();
-  $('#current-turn-score2').text(pigDicePlayerForList.player[1].currentScore);
+   $('#current-turn-score2').text(pigDicePlayerForList.player[1].currentScore);
+    pigDicePlayerForList.player[1].winCheck();
   });
 
 });
