@@ -45,29 +45,24 @@ Player.prototype.rollDice2 = function() {
 }
 
 Player.prototype.winCheck = function (){
-  if (this.totalScore >= 1) {
+  if (this.totalScore >= 100) {
     $('.container').hide();
-    $('#output-Winner').text("you win")
-
+    $('#output-Winner').show()
   }
 }
-
 //user logic
 var pigDicePlayerForList = new PigDicePlayer();
-
 $(document).ready(function () {
   $('form#name-entry1').submit(function (event) {
     event.preventDefault();
     var playerOneNameInput = $('#new-user1').val();
-      $('#name-turn-indicator1').text(playerOneNameInput)
+    $('#name-turn-indicator1').text(playerOneNameInput)
     console.log(playerOneNameInput);
     var totalScore = [];
     var diceFace = [];
     var currentScore = [];
-
     //this creating a new player with the new Player constructor
     var newPlayer = new Player(playerOneNameInput, totalScore, diceFace, currentScore);
-
     //this calls the prototype to push new player into  player array
     pigDicePlayerForList.addPlayer(newPlayer);
     //This hides the form after name submission
@@ -76,7 +71,6 @@ $(document).ready(function () {
     $('#show-score1').show();
     $('#name-entry2').show();
   });
-  console.log(pigDicePlayerForList.player[0])
 
   $('form#name-entry2').submit(function (event) {
     event.preventDefault();
@@ -85,10 +79,8 @@ $(document).ready(function () {
     var totalScore = [];
     var diceFace = [];
     var currentScore = [];
-
     //this creating a new player with the new Player constructor
     var newPlayer = new Player(playerTwoNameInput, totalScore, diceFace, currentScore);
-
     //this calls the prototype to push new player into  player array
     pigDicePlayerForList.addPlayer(newPlayer);
     //This hides the form after name submission
@@ -98,8 +90,6 @@ $(document).ready(function () {
     $('#button2').show();
   });
 
-
-  console.log(pigDicePlayerForList.player[1])
   //This click function calculates the current score and creates outputs to DOM
   //and updates objects
   $('#roll1').click(function (event) {
@@ -111,7 +101,6 @@ $(document).ready(function () {
     pigDicePlayerForList.player[0].rollDice1();
     $('#current-turn-score1').text(pigDicePlayerForList.player[0].currentScore);
   });
-
 
   $('#roll2').click(function (event) {
     event.preventDefault();
@@ -126,23 +115,22 @@ $(document).ready(function () {
   //This click function calculates the total score and creates output to the DOM
   //and updates objects
   $('#hold1').click(function (event) {
-      event.preventDefault();
-      pigDicePlayerForList.player[0].holdFunc();
-     $('#total-score1').text(pigDicePlayerForList.player[0].totalScore);
-     $('#button1').hide();
-     $('#button2').show();
-     $('#current-turn-score1').text(pigDicePlayerForList.player[0].currentScore);
-      pigDicePlayerForList.player[0].winCheck();
+    event.preventDefault();
+    pigDicePlayerForList.player[0].holdFunc();
+    $('#total-score1').text(pigDicePlayerForList.player[0].totalScore);
+    $('#button1').hide();
+    $('#button2').show();
+    $('#current-turn-score1').text(pigDicePlayerForList.player[0].currentScore);
+    pigDicePlayerForList.player[0].winCheck();
   });
 
   $('#hold2').click(function (event) {
     event.preventDefault();
     pigDicePlayerForList.player[1].holdFunc();
-   $('#total-score2').text(pigDicePlayerForList.player[1].totalScore);
-   $('#button2').hide();
-   $('#button1').show();
-   $('#current-turn-score2').text(pigDicePlayerForList.player[1].currentScore);
+    $('#total-score2').text(pigDicePlayerForList.player[1].totalScore);
+    $('#button2').hide();
+    $('#button1').show();
+    $('#current-turn-score2').text(pigDicePlayerForList.player[1].currentScore);
     pigDicePlayerForList.player[1].winCheck();
   });
-
 });
